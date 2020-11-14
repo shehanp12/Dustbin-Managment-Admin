@@ -6,7 +6,7 @@ import NavBar from "./Components/NavBars/NavBar";
 import LoadingScreen from "./Components/Loading/Loading";
 function App() {
   return (
-      <LoadingScreen/>
+      <NavBar/>
 
   );
 
