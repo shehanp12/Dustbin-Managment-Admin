@@ -16,7 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
-
+import RoomIcon from '@material-ui/icons/Room';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import GoogleMaps from "../Map/GoogleMaps";
@@ -84,15 +84,17 @@ export default function ResponsiveDrawer(props: Props) {
               <Link to="/">
                   <ListItem button>
                       <ListItemIcon>
-                          <MenuIcon/>
+                          <HomeIcon/>
                       </ListItemIcon>
+                      <ListItemText primary={"Details"} />
                   </ListItem>
               </Link>
               <Link to="/map">
                   <ListItem button>
                       <ListItemIcon>
-                                <HomeIcon/>
+                          <RoomIcon/>
                       </ListItemIcon>
+                      <ListItemText primary={"GoogleMaps"} />
                   </ListItem>
               </Link>
 
@@ -128,7 +130,7 @@ export default function ResponsiveDrawer(props: Props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+                 Municipal Council Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
