@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles"
-
+import RoomIcon from '@material-ui/icons/Room';
 import {
   BrowserRouter as Router,
   Switch, Route, Link
@@ -13,9 +13,11 @@ import {
 } from "@material-ui/core";
 
 import HomeIcon from "@material-ui/icons/Home";
-import InfoIcon from '@material-ui/icons/Info';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+
 import Home from "../../Layouts/Home/Home";
 import GoogleMaps from "../../Layouts/Map/GoogleMaps";
+import Notification from "../../Layouts/Notification/Notification";
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
@@ -49,9 +51,17 @@ function Navbar() {
             <Link to="/maps" className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
-                  <InfoIcon />
+                  <RoomIcon/>
                 </ListItemIcon>
                 <ListItemText primary={"GoogleMap"} />
+              </ListItem>
+            </Link>
+            <Link to="/notification" className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <NotificationsIcon/>
+                </ListItemIcon>
+                <ListItemText primary={"Notification"} />
               </ListItem>
             </Link>
           </List>
@@ -60,6 +70,8 @@ function Navbar() {
           <Route exact path="/" component={Home}>
           </Route>
           <Route exact path="/maps" component={GoogleMaps}>
+          </Route>
+          <Route exact path="/notification" component={Notification}>
           </Route>
         </Switch>
       </div>
