@@ -3,13 +3,14 @@ import ButtonAppBar from "../../Components/AppBar/AppBar";
 import SpacingGrid from "../../Components/Grid/GridLayout";
 import GridLayout from "../../Components/Grid/GridLayout";
 import styles from  "../layouts.module.css"
-import fire from "../../firebaseSetup";
+import firestore from  "../../firebaseConfig"
 class Home extends Component{
 
   state = {students:null}
 
 componentDidMount() {
-    let db = fire.firestore()
+      console.log('mountend')
+    let db = firestore.firestore()
     db.collection('Bins').get().then(
         snapshot => {
             console.log(snapshot)
