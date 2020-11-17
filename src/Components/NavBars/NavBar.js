@@ -14,10 +14,11 @@ import {
 
 import HomeIcon from "@material-ui/icons/Home";
 import NotificationsIcon from '@material-ui/icons/Notifications';
-
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import Home from "../../Layouts/Home/Home";
 import GoogleMaps from "../../Layouts/Map/GoogleMaps";
 import Notification from "../../Layouts/Notification/Notification";
+import Trucks from "../../Layouts/Trucks/Trucks";
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
@@ -64,6 +65,15 @@ function Navbar() {
                 <ListItemText primary={"Notification"} />
               </ListItem>
             </Link>
+            <Link to="/trucks" className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <LocalShippingIcon/>
+                </ListItemIcon>
+                <ListItemText primary={"Trucks"} />
+              </ListItem>
+            </Link>
+
           </List>
         </Drawer>
         <Switch>
@@ -72,6 +82,8 @@ function Navbar() {
           <Route exact path="/maps" component={GoogleMaps}>
           </Route>
           <Route exact path="/notification" component={Notification}>
+          </Route>
+          <Route exact path="/trucks" component={Trucks}>
           </Route>
         </Switch>
       </div>
