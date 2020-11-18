@@ -6,13 +6,20 @@ import styles from  "../layouts.module.css"
 import firestore from  "../../firebaseConfig"
 class Home extends Component{
 
-  state = {students:null}
+  state = {Bins:null}
 
 componentDidMount() {
       console.log('mountend')
     let db = firestore.firestore()
-    db.collection('Bins').get().then(
+    db.collection('Drivers').get().then(
         snapshot => {
+          //   const Bins = []
+          // snapshot.forEach(
+          //     doc =>{
+          //         const data = doc.data()
+          //         Bins.push(data)
+          //     })
+          //   this.setState({ Bins:Bins})
             console.log(snapshot)
         }).catch(
             error => console.log(error)
@@ -31,7 +38,11 @@ componentDidMount() {
             <div className={styles.center}>
                 <GridLayout/>
             </div>
-
+              <div>
+                  {
+                    this.state.Bins &&   this.state.Bins.map(Bin=> <div>{Bin.BinLocation}</div>)
+                  }
+              </div>
 
 
 
