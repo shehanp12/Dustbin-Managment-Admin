@@ -1,0 +1,17 @@
+.center {
+    position: absolute;
+    left: 300px;
+    width: 300px;
+    padding: 10px;
+    top: 100px;
+}
+
+.center1{
+    float: left;
+    left: 300px;
+    width: 300px;
+    padding: 10px;
+    top: 200px;
+
+}
+

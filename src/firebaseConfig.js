@@ -1,11 +1,21 @@
-export  const firebaseConfig = {
-    apiKey: "AIzaSyBQ2VK53f8CUtIKYyiVg0misI5iQgXXktQ",
-    authDomain: "ecfinder-7e8df.firebaseapp.com",
-    databaseURL: "https://ecfinder-7e8df.firebaseio.com",
-    projectId: "ecfinder-7e8df",
-    storageBucket: "ecfinder-7e8df.appspot.com",
-    messagingSenderId: "181195345499",
-    appId: "1:181195345499:web:adcd90203f02fb8c7ab97e",
-    measurementId: "G-DY5R9JKHTZ"
-};
+import  firebase from 'firebase/app';
+import "firebase/firestore"
+
+const app = firebase.initializeApp({
+        apiKey: "AIzaSyAXH6DZRVpRNrrlSzXZsozRfiF0fYXdNmA",
+        authDomain: "dustbin-management-f6197.firebaseapp.com",
+        databaseURL: "https://dustbin-management-f6197.firebaseio.com",
+        projectId: "dustbin-management-f6197",
+        storageBucket: "dustbin-management-f6197.appspot.com",
+        messagingSenderId: "1080411520816",
+        appId: "1:1080411520816:web:5696e5e8d57dd5b71212f5",
+        measurementId: "G-HGBQDBLQKF"
+
+    });
+
+const projectFirestore = firebase.firestore();
+
+export {projectFirestore}
+export  const firestore = app.firestore()
+export default app
 

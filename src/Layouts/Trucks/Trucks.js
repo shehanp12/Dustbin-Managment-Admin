@@ -1,20 +1,13 @@
 import React,{Component} from "react";
 import ButtonAppBar from "../../Components/AppBar/AppBar";
 
-
-class Notification extends Component{
-
-
+class Trucks extends Component{
     render() {
         return(
-            <>
             <ButtonAppBar/>
-
-            </>
-
         )
     }
 
 }
 
-export default Notification
+export default Trucks

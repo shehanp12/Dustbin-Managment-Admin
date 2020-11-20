@@ -1,13 +1,26 @@
-import React,{Component} from "react";
-import ButtonAppBar from "../../Components/AppBar/AppBar";
+import React from "react";
+import DriverDetails from "../../Components/Grid/DriverDetails";
+import SmartDetails from "../../Components/Grid/SmartDetails";
+import {AppBar} from "@material-ui/core";
 
-class Home extends Component{
-    render() {
-        return(
-            <ButtonAppBar/>
-        )
-    }
+
+
+const Home = () =>{
+
+    return (
+
+         <>
+             <AppBar/>
+        <DriverDetails/>
+
+        <SmartDetails/>
+        </>
+
+
+
+
+    )
 
 }
 
-export default Home
+export default  Home
