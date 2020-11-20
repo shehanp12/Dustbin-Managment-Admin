@@ -1,13 +1,19 @@
-import React,{Component} from "react";
+import React from "react";
 import ButtonAppBar from "../../Components/AppBar/AppBar";
+import  {GoogleMap,withGoogleMap,withScriptjs} from "react-google-maps";
 
-class GoogleMaps extends Component{
-    render() {
-        return(
-            <ButtonAppBar/>
-        )
-    }
+
+const GoogleMaps = () =>{
+
+    return(
+        <GoogleMap defaultZoom={10}
+                   defaultCenter={{lat:45.23,lng:-75}}/>
+    );
 
 }
 
-export default GoogleMaps
+const WrappedMap= withScriptjs(withGoogleMap(Map));
+
+
+
+export default  GoogleMaps
