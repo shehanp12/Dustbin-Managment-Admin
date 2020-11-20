@@ -40,6 +40,7 @@ const center = {
 export default function GoogleMaps() {
 
     const {docs} = useFirestore('Bins');
+
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey:'AIzaSyBjxXtPc46-r1RsHkkbVQcx2uegFaRKIAc',
         libraries,
@@ -78,7 +79,7 @@ export default function GoogleMaps() {
             <GoogleMap
                 id="map"
                 mapContainerStyle={mapContainerStyle}
-                zoom={8}
+                zoom={13}
                 center={center}
                 options={options}
                 onClick={onMapClick}
@@ -158,7 +159,6 @@ function Search({ panTo }) {
         },
     });
 
-    // https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest
 
     const handleInput = (e) => {
         setValue(e.target.value);
