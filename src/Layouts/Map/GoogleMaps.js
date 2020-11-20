@@ -19,6 +19,8 @@ import {
 import { formatRelative } from "date-fns";
 
 import "@reach/combobox/styles.css";
+import ButtonAppBar from "../../Components/AppBar/AppBar";
+import useFirestore from "../../Hooks/useFirestore";
 
 
 const libraries = ["places"];
@@ -31,11 +33,13 @@ const options = {
     zoomControl: true,
 };
 const center = {
-    lat: 43.6532,
-    lng: -79.3832,
+    lat: 7.0840,
+    lng: 80.0098,
 };
 
 export default function GoogleMaps() {
+
+    const {docs} = useFirestore('Bins');
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey:'AIzaSyBjxXtPc46-r1RsHkkbVQcx2uegFaRKIAc',
         libraries,
@@ -70,7 +74,7 @@ export default function GoogleMaps() {
     return (
         <div>
 
-
+            <ButtonAppBar/>
             <GoogleMap
                 id="map"
                 mapContainerStyle={mapContainerStyle}
@@ -80,15 +84,15 @@ export default function GoogleMaps() {
                 onClick={onMapClick}
                 onLoad={onMapLoad}
             >
-                {markers.map((marker) => (
+                {docs.map((doc) => (
                     <Marker
-                        key={`${marker.lat}-${marker.lng}`}
-                        position={{ lat: marker.lat, lng: marker.lng }}
+                        key={`${doc.BinLocation.latitude}-${doc.BinLocation.longitude}`}
+                        position={{ lat:doc.BinLocation.latitude, lng:doc.BinLocation.longitude}}
                         onClick={() => {
-                            setSelected(marker);
+                            setSelected(doc);
                         }}
                         icon={{
-                            url: `/bear.svg`,
+                            url: `/recycle.png`,
                             origin: new window.google.maps.Point(0, 0),
                             anchor: new window.google.maps.Point(15, 15),
                             scaledSize: new window.google.maps.Size(30, 30),
@@ -149,7 +153,7 @@ function Search({ panTo }) {
         clearSuggestions,
     } = usePlacesAutocomplete({
         requestOptions: {
-            location: { lat: () => 43.6532, lng: () => -79.3832 },
+            location: { lat: () => 7.0840, lng: () => 80.0098 },
             radius: 100 * 1000,
         },
     });

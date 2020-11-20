@@ -15,6 +15,7 @@ const SmartDetails = () =>{
                     return (
                         <div>
                            <p>{doc.id}</p>
+                            <p>{doc.BinLocation.latitude}</p>
 
 
                         </div>
