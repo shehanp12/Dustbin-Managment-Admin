@@ -8,14 +8,14 @@ const SmartDetails = () =>{
     console.log(docs)
 
     return(
-        <div>
+        <div style={{color:'Black'}}>
             <h1>SmartBin Details</h1>
             {
                 docs.map(doc => {
                     return (
                         <div>
-                           <p>{doc.id}</p>
-                            <p>{doc.BinLocation.latitude}</p>
+                           <p style={{fontWeight:'bold'}}>Smart Id :{doc.id}</p>
+
 
 
                         </div>

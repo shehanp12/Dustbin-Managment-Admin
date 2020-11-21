@@ -8,13 +8,13 @@ const TruckDetails = () =>{
     console.log(docs)
 
     return(
-        <div>
-            <h1>Truck Details</h1>
+        <div style={{color:'Black'}}>
+            <h1 >Truck Details</h1>
             {
                 docs.map(doc => {
                     return (
                         <div>
-                            <p style={{fontWeight:'bold'}}>{doc.id}</p>
+                            <p style={{fontWeight:'bold'}}>Truck Id :{doc.id}</p>
                             <p>{doc.Capacity}</p>
 
                         </div>
