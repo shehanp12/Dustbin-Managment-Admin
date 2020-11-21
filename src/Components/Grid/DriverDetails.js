@@ -8,8 +8,9 @@ const DriverDetails = () =>{
     console.log(docs)
 
     return(
-        <div>
-            <h1>Driver Details</h1>
+        <div style={{color:'Black'}}>
+        <div >
+            <h1  >Driver Details</h1>
             {
                 docs.map(doc => {
                     return (
@@ -25,6 +26,7 @@ const DriverDetails = () =>{
                     )
                 })
             }
+        </div>
         </div>
     )
 
