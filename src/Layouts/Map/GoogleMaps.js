@@ -19,7 +19,7 @@ import {
 import { formatRelative } from "date-fns";
 
 import "@reach/combobox/styles.css";
-import ButtonAppBar from "../../Components/AppBar/AppBar";
+import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import useFirestore from "../../Hooks/useFirestore";
 
 

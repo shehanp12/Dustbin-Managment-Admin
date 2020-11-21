@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import ButtonAppBar from "../../Components/AppBar/AppBar";
+import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 
 
 class Notification extends Component{
