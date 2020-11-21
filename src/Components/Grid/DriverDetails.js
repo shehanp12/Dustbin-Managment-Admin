@@ -14,12 +14,12 @@ const DriverDetails = () =>{
                 docs.map(doc => {
                     return (
                         <div>
-                            <p style={{fontWeight:'bold'}}>{doc.id}</p>
-                           <p>Email:{doc.email}</p>
-                            <p>{doc.address}</p>
-                            <p>{doc.fullName}</p>
-                            <p>{doc.nicNumber}</p>
-                            <p>{doc.phoneNumber}</p>
+                            <p style={{fontWeight:'bold'}}>Driver Id :{doc.id}</p>
+                           <p>Email :{doc.email}</p>
+                            <p>Address :{doc.address}</p>
+                            <p>Full Name:{doc.fullName}</p>
+                            <p>NIC Number:{doc.nicNumber}</p>
+                            <p>Phone Number:{doc.phoneNumber}</p>
 
                         </div>
                     )
