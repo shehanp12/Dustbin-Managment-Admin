@@ -21,7 +21,7 @@ import { formatRelative } from "date-fns";
 import "@reach/combobox/styles.css";
 import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import useFirestore from "../../Hooks/useFirestore";
-
+import useDatabase from  "../../Hooks/useDatabase";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -40,6 +40,7 @@ const center = {
 export default function GoogleMaps() {
 
     const {docs} = useFirestore('Bins');
+    const {mins} = useDatabase('DriverLocation');
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey:'AIzaSyBjxXtPc46-r1RsHkkbVQcx2uegFaRKIAc',
@@ -97,6 +98,22 @@ export default function GoogleMaps() {
                             origin: new window.google.maps.Point(0, 0),
                             anchor: new window.google.maps.Point(15, 15),
                             scaledSize: new window.google.maps.Size(30, 30),
+                        }}
+                    />
+                ))}
+
+                {mins.map((min) => (
+                    <Marker
+                        key={`${min.latitude}-${min.longitude}`}
+                        position={{ lat:min.latitude, lng:min.longitude}}
+                        onClick={() => {
+                            setSelected(min);
+                        }}
+                        icon={{
+                            url: `/vehicle.png`,
+                            origin: new window.google.maps.Point(0, 0),
+                            anchor: new window.google.maps.Point(15, 15),
+                            scaledSize: new window.google.maps.Size(45, 45),
                         }}
                     />
                 ))}
