@@ -19,11 +19,11 @@ const useDatabase = (database) =>{
 
             })
 
-        return () => minRef()
+        return () => minRef
     },[database])
 
 
-    return {mins}
+    return {mins};
 
 
 
