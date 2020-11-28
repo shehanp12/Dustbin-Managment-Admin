@@ -83,8 +83,7 @@ function Navbar() {
           </Route>
           <Route exact path="/notification" component={Notification}>
           </Route>
-          <Route exact path="/trucks" component={Trucks}>
-          </Route>
+
         </Switch>
       </div>
     </Router>
