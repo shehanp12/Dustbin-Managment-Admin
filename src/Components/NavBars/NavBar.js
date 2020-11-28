@@ -9,7 +9,6 @@ import {
 import {
   Drawer, List, ListItem,
   ListItemIcon, ListItemText,
-  Container, Typography,
 } from "@material-ui/core";
 
 import HomeIcon from "@material-ui/icons/Home";

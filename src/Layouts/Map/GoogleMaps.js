@@ -142,24 +142,7 @@ export default function GoogleMaps() {
 
                 }
 
-                {selected ? (
-                    <InfoWindow
-                        position={{ lat: selected.lat, lng: selected.lng }}
-                        onCloseClick={() => {
-                            setSelected(null);
-                        }}
-                    >
-                        <div>
-                            <h2>
-                <span role="img" aria-label="bear">
-                  🐻
-                </span>{" "}
-                                Alert
-                            </h2>
-                            <p>Spotted {formatRelative(selected.time, new Date())}</p>
-                        </div>
-                    </InfoWindow>
-                ) : null}
+
             </GoogleMap>
         </div>
     );

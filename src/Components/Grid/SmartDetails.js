@@ -15,6 +15,8 @@ const SmartDetails = () =>{
                     return (
                         <div>
                            <p style={{fontWeight:'bold'}}>Smart Id :{doc.id}</p>
+                            <p>Capacity : {doc.capacity==true? "Available" : "Unavailable"}</p>
+
 
 
 
