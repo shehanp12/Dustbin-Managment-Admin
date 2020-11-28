@@ -65,14 +65,7 @@ function Navbar() {
                 <ListItemText primary={"Notification"} />
               </ListItem>
             </Link>
-            <Link to="/trucks" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <LocalShippingIcon/>
-                </ListItemIcon>
-                <ListItemText primary={"Trucks"} />
-              </ListItem>
-            </Link>
+
 
           </List>
         </Drawer>

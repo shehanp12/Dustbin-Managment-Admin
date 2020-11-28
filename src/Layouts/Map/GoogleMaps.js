@@ -22,6 +22,7 @@ import "@reach/combobox/styles.css";
 import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import useFirestore from "../../Hooks/useFirestore";
 import useDatabase from  "../../Hooks/useDatabase";
+import  projectAuth from "../../firebaseConfig";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -38,6 +39,8 @@ const center = {
 };
 
 export default function GoogleMaps() {
+
+
 
     const {docs} = useFirestore('Bins');
     const {mins} = useDatabase('DriverLocation');
@@ -86,7 +89,8 @@ export default function GoogleMaps() {
                 onClick={onMapClick}
                 onLoad={onMapLoad}
             >
-                {docs.map((doc) => (
+                {
+                    docs.map((doc) => (
                     <Marker
                         key={`${doc.BinLocation.latitude}-${doc.BinLocation.longitude}`}
                         position={{ lat:doc.BinLocation.latitude, lng:doc.BinLocation.longitude}}
@@ -102,21 +106,41 @@ export default function GoogleMaps() {
                     />
                 ))}
 
-                {mins.map((min) => (
-                    <Marker
-                        key={`${min.latitude}-${min.longitude}`}
-                        position={{ lat:min.latitude, lng:min.longitude}}
-                        onClick={() => {
-                            setSelected(min);
-                        }}
-                        icon={{
-                            url: `/vehicle.png`,
-                            origin: new window.google.maps.Point(0, 0),
-                            anchor: new window.google.maps.Point(15, 15),
-                            scaledSize: new window.google.maps.Size(45, 45),
-                        }}
-                    />
-                ))}
+
+
+                {
+
+
+
+
+                            mins.map((min) => (
+                                <Marker
+                                    key={`${min.latitude}-${min.longitude}`}
+                                    position={{ lat:min.latitude, lng:min.longitude}}
+                                    onClick={() => {
+                                        setSelected(min);
+                                    }}
+                                    icon={{
+                                        url: `/vehicle.png`,
+                                        origin: new window.google.maps.Point(0, 0),
+                                        anchor: new window.google.maps.Point(15, 15),
+                                        scaledSize: new window.google.maps.Size(45, 45),
+                                    }}
+                                />
+                            ))
+
+                        }
+
+
+
+
+
+
+
+
+
+
+                }
 
                 {selected ? (
                     <InfoWindow
