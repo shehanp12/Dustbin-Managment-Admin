@@ -23,6 +23,8 @@ import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import useFirestore from "../../Hooks/useFirestore";
 import useDatabase from  "../../Hooks/useDatabase";
 import  projectAuth from "../../firebaseConfig";
+import FooterPage from "../../Components/Footer/footerPage";
+import useFire from "../../Hooks/usefire";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -44,6 +46,12 @@ export default function GoogleMaps() {
 
     const {docs} = useFirestore('Bins');
     const {mins} = useDatabase('DriverLocation');
+    const {eagle} = useFire('Drivers');
+
+
+
+
+
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey:'AIzaSyBjxXtPc46-r1RsHkkbVQcx2uegFaRKIAc',
@@ -110,8 +118,9 @@ export default function GoogleMaps() {
 
                 {
 
+                    eagle.map((doc) =>(
 
-
+                        doc.login == true ?
 
                             mins.map((min) => (
                                 <Marker
@@ -128,6 +137,21 @@ export default function GoogleMaps() {
                                     }}
                                 />
                             ))
+                            :null))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         }
 
@@ -220,5 +244,7 @@ function Search({ panTo }) {
                 </ComboboxPopover>
             </Combobox>
         </div>
+
     );
+    <FooterPage/>
 }
