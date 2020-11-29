@@ -9,7 +9,6 @@ import {
 import {
   Drawer, List, ListItem,
   ListItemIcon, ListItemText,
-  Container, Typography,
 } from "@material-ui/core";
 
 import HomeIcon from "@material-ui/icons/Home";
@@ -65,14 +64,7 @@ function Navbar() {
                 <ListItemText primary={"Notification"} />
               </ListItem>
             </Link>
-            <Link to="/trucks" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <LocalShippingIcon/>
-                </ListItemIcon>
-                <ListItemText primary={"Trucks"} />
-              </ListItem>
-            </Link>
+
 
           </List>
         </Drawer>

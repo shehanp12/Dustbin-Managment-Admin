@@ -1,12 +1,12 @@
 import React from "react";
 import DriverDetails from "../../Components/Grid/DriverDetails";
 import SmartDetails from "../../Components/Grid/SmartDetails";
-import {AppBar} from "@material-ui/core";
 import TruckDetails from "../../Components/Grid/TrucksDetails";
 import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import FooterPage from "../../Components/Footer/footerPage";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -60,7 +60,7 @@ const Home = () =>{
             </div>
             </div>
 
-
+         <FooterPage/>
         </div>
 
 
