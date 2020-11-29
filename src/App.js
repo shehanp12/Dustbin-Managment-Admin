@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
-import Navbar from "./Components/NavBars/NavBar";
+import StickyHeadTable from "./Components/Grid/testDetails";
 
 function App() {
   return (
-      <Navbar/>
+      <StickyHeadTable/>
 
   );
 
