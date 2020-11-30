@@ -46,7 +46,6 @@ export default function GoogleMaps() {
 
     const {docs} = useFirestore('Bins');
     const {mins} = useDatabase('DriverLocation');
-    const {eagle} = useFire('Drivers');
 
 
 
@@ -118,9 +117,9 @@ export default function GoogleMaps() {
 
                 {
 
-                    eagle.map((doc) =>(
 
-                        doc.login == true ?
+
+
 
                             mins.map((min) => (
                                 <Marker
@@ -137,7 +136,7 @@ export default function GoogleMaps() {
                                     }}
                                 />
                             ))
-                            :null))
+
 
 
 
