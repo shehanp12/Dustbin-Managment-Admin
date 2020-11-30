@@ -49,7 +49,14 @@ const Home = () =>{
                 <div style={{padding:'15px'}}>
                 </div>
                  <SmartDetails/>
-
+                <div style={{padding:'15px'}}>
+                </div>
+                <Grid item xs={3}>
+                    <Paper className={classes.paper} style={{fontWeight:'bold'}}>Truck Details</Paper>
+                </Grid>
+                <div style={{padding:'15px'}}>
+                </div>
+                <TruckDetails/>
             </Grid>
 
 

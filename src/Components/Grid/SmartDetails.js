@@ -12,7 +12,8 @@ import useFirestore from "../../Hooks/useFirestore";
 const columns = [
     {id:'id',label: 'ID',minWidth: 100},
     { id: 'capacity', label: 'Capacity', minWidth: 100 },
-    {id:'DriverId',label: "Driver Id",minWidth: 100}
+    {id:'DriverId',label: "Driver Id",minWidth: 100},
+
 
 
 ];
