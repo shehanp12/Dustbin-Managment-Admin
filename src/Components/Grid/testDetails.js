@@ -46,10 +46,7 @@ function createData(Driverid, Email, Address, FullName,NicNumber,PhoneNumber) {
     return { name: Driverid, code: Email, population: Address, size: FullName,NicNumber,PhoneNumber };
 }
 
-const rows = [
 
-
-];
 
 const useStyles = makeStyles({
     root: {
@@ -75,38 +72,46 @@ export default function StickyHeadTable() {
         setPage(0);
     };
     const {docs} = useFirestore('Drivers');
-     docs.map()
-    return (
 
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                            {columns.map((column) => (
-                                <TableCell
-                                    key={column.id}
-                                    align={column.align}
-                                    style={{ minWidth: column.minWidth }}
-                                >
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
+         return (
 
-                        docs.map(doc => {
+             <Paper className={classes.root}>
+                 <TableContainer className={classes.container}>
+                     <Table stickyHeader aria-label="sticky table">
+                         <TableHead>
+                             <TableRow>
+                                 {columns.map((column) => (
+                                     <TableCell
+                                         key={column.id}
+                                         align={column.align}
+                                         style={{ minWidth: column.minWidth }}
+                                     >
+                                         {column.label}
+                                     </TableCell>
+                                 ))}
+                             </TableRow>
+                         </TableHead>
+                         <TableBody>
+                             {docs.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((doc) => {
+                                 return (
+                                     <TableRow hover role="checkbox" tabIndex={-1} key={doc.code}>
+                                         {columns.map((column) => {
+                                             const value = doc[column.id];
+                                             return (
+                                                 <TableCell key={column.id} align={column.align}>
+                                                     {column.format && typeof value === 'number' ? column.format(value) : value}
+                                                 </TableCell>
+                                             );
+                                         })}
+                                     </TableRow>
+                                 );
+                             })}
+                         </TableBody>
+                     </Table>
+                 </TableContainer>
+
+             </Paper>
+         );
 
 
-
-
-                    })
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer>
-
-        </Paper>
-    );
 }
