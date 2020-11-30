@@ -7,6 +7,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import FooterPage from "../../Components/Footer/footerPage";
+import StickyHeadTable from "../../Components/Grid/testDetails";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -17,7 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
         paper: {
             padding: theme.spacing(2),
             textAlign: 'center',
-            color: theme.palette.text.secondary,
+            color: theme.palette.text.primary,
+
         },
     }),
 );
@@ -36,12 +38,17 @@ const Home = () =>{
             <div style={{padding:'15px'}}>
 
             </div>
-            <Grid container spacing={3}>
-            <Grid item xs={6} sm={3}>
-                <Paper className={classes.paper}>
-                    <DriverDetails />
-                </Paper>
-            </Grid>
+            <Grid>
+                <Grid item xs={3}>
+                    <Paper className={classes.paper} style={{fontWeight:'bold'}}>Driver Details</Paper>
+
+                </Grid>
+                <div style={{padding:'15px'}}>
+
+                </div>
+                    <StickyHeadTable/>
+
+
             <Grid item xs={6} sm={3}>
                 <Paper className={classes.paper}>
                     <TruckDetails/>
