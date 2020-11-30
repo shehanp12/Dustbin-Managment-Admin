@@ -6,10 +6,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import useFirestore from "../../Hooks/useFirestore";
-
 const columns = [
     { id: 'id', label: 'DriverId ', minWidth: 100 },
     { id: 'FullName', label: 'Email', minWidth: 100 },
@@ -22,6 +20,8 @@ const columns = [
     },
 
 ];
+
+
 
 function createData(Driverid, FullName,notification) {
 
@@ -46,14 +46,7 @@ export default function NotificationDetails() {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
 
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
-    };
     const {docs} = useFirestore('notification');
 
     return (
