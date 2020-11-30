@@ -11,39 +11,16 @@ import TableRow from '@material-ui/core/TableRow';
 import useFirestore from "../../Hooks/useFirestore";
 
 const columns = [
-    { id: 'BinLocation', label: 'Driver Id ', minWidth: 100 },
-    { id: 'email', label: 'Email', minWidth: 100 },
-    {
-        id: 'address',
-        label: 'Address',
-        minWidth: 100,
+
+    { id: 'capacity', label: 'Capacity', minWidth: 100 },
+    {id:'id',label: 'ID',minWidth: 100}
 
 
-    },
-    {
-        id: 'fullName',
-        label: 'Full Name',
-        minWidth: 100,
-
-
-    },
-    {
-        id: 'nicNumber',
-        label: 'Nic Number',
-        minWidth: 100,
-
-    },
-    {
-        id: 'phoneNumber',
-        label: 'Phone Number',
-        minWidth: 100,
-
-    },
 ];
 
-function createData(Driverid, Email, Address, FullName,NicNumber,PhoneNumber) {
+function createData(capacity,id) {
 
-    return { name: Driverid, code: Email, population: Address, size: FullName,NicNumber,PhoneNumber };
+    return { capacity,id};
 }
 
 
@@ -71,7 +48,7 @@ export default function DriverDetails() {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
-    const {docs} = useFirestore('Drivers');
+    const {docs} = useFirestore('Bins');
 
     return (
 
@@ -99,7 +76,7 @@ export default function DriverDetails() {
                                         const value = doc[column.id];
                                         return (
                                             <TableCell key={column.id} align={column.align}>
-                                                {column.format && typeof value === 'number' ? column.format(value) : value}
+                                                { value}
                                             </TableCell>
                                         );
                                     })}
