@@ -31,7 +31,7 @@ export default function ButtonAppBar() {
 
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        Municipal Council Admin Panel
+                        Trash Collection
                     </Typography>
 
                 </Toolbar>
