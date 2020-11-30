@@ -11,49 +11,32 @@ import TableRow from '@material-ui/core/TableRow';
 import useFirestore from "../../Hooks/useFirestore";
 
 const columns = [
-    { id: 'id', label: 'Driver Id ', minWidth: 100 },
-    { id: 'email', label: 'Email', minWidth: 100 },
+    { id: 'id', label: 'DriverId ', minWidth: 100 },
+    { id: 'fullName', label: 'Full Name', minWidth: 100 },
     {
-        id: 'address',
-        label: 'Address',
+        id: 'notification',
+        label: 'Notification',
         minWidth: 100,
 
 
     },
-    {
-        id: 'fullName',
-        label: 'Full Name',
-        minWidth: 100,
 
-
-    },
-    {
-        id: 'nicNumber',
-        label: 'Nic Number',
-        minWidth: 100,
-
-    },
-    {
-        id: 'phoneNumber',
-        label: 'Phone Number',
-        minWidth: 100,
-
-    },
 ];
 
-function createData(Driverid, Email, Address, FullName,NicNumber,PhoneNumber) {
+function createData(Driverid, FullName,notification) {
 
-    return { name: Driverid, code: Email, population: Address, size: FullName,NicNumber,PhoneNumber };
+    return { Driverid,FullName,notification };
 }
 
 
 
 const useStyles = makeStyles({
     root: {
-        width: '100%',
+        width: '50%',
     },
     container: {
         maxHeight: 440,
+
     },
 });
 

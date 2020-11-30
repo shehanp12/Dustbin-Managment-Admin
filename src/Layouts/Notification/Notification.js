@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
         paper: {
             padding: theme.spacing(2),
             textAlign: 'center',
-            color: theme.palette.text.secondary,
+            color: theme.palette.text.primary,
         },
     }),
 );
@@ -34,7 +34,7 @@ const Notification = () =>{
 
                 <Grid>
                     <Grid item xs={3}>
-                        <Paper className={classes.paper} style={{fontWeight:'bold'}}>Driver Details</Paper>
+                        <Paper className={classes.paper} style={{fontWeight:'bold'}}>Notification Details</Paper>
 
                     </Grid>
                     <div style={{padding:'15px'}}>
