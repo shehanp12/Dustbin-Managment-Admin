@@ -49,22 +49,13 @@ const Home = () =>{
                     <StickyHeadTable/>
 
 
-            <Grid item xs={6} sm={3}>
-                <Paper className={classes.paper}>
-                    <TruckDetails/>
-                </Paper>
-            </Grid>
-                <Grid item xs={6} sm={3}>
-                    <Paper className={classes.paper}>
-                        <SmartDetails/>
-                    </Paper>
-                </Grid>
+
+
             </Grid>
 
 
-            <div style={{textAlign:'center'}}>
 
-            </div>
+
             </div>
 
 
