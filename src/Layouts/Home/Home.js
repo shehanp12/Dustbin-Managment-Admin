@@ -31,40 +31,37 @@ const Home = () =>{
 
         <div className={classes.root} >
             <ButtonAppBar/>
-
             <div style={{marginLeft:'20px'}}>
-
-
             <div style={{padding:'15px'}}>
-
             </div>
             <Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper} style={{fontWeight:'bold'}}>Driver Details</Paper>
-
                 </Grid>
                 <div style={{padding:'15px'}}>
-
                 </div>
-                    <StickyHeadTable/>
-
-
-            <Grid item xs={6} sm={3}>
-                <Paper className={classes.paper}>
-                    <TruckDetails/>
-                </Paper>
-            </Grid>
-                <Grid item xs={6} sm={3}>
-                    <Paper className={classes.paper}>
-                        <SmartDetails/>
-                    </Paper>
+                    <DriverDetails/>
+                <div style={{padding:'15px'}}>
+                </div>
+                <Grid item xs={3}>
+                    <Paper className={classes.paper} style={{fontWeight:'bold'}}>SmartBin Details</Paper>
                 </Grid>
+                <div style={{padding:'15px'}}>
+                </div>
+                 <SmartDetails/>
+                <div style={{padding:'15px'}}>
+                </div>
+                <Grid item xs={3}>
+                    <Paper className={classes.paper} style={{fontWeight:'bold'}}>Truck Details</Paper>
+                </Grid>
+                <div style={{padding:'15px'}}>
+                </div>
+                <TruckDetails/>
             </Grid>
 
 
-            <div style={{textAlign:'center'}}>
 
-            </div>
+
             </div>
 
 

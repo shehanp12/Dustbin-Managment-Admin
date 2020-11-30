@@ -6,14 +6,14 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import useFirestore from "../../Hooks/useFirestore";
 
 const columns = [
-
+    {id:'id',label: 'ID',minWidth: 100},
     { id: 'capacity', label: 'Capacity', minWidth: 100 },
-    {id:'id',label: 'ID',minWidth: 100}
+    {id:'DriverId',label: "Driver Id",minWidth: 100},
+
 
 
 ];
@@ -27,14 +27,14 @@ function createData(capacity,id) {
 
 const useStyles = makeStyles({
     root: {
-        width: '100%',
+        width: '60%',
     },
     container: {
         maxHeight: 440,
     },
 });
 
-export default function DriverDetails() {
+export default function SmartBinDetails() {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);

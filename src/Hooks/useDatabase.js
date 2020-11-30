@@ -1,8 +1,6 @@
 import {useState, useEffect} from 'react';
 import {projectDatabase} from "../firebaseConfig";
 
-
-
 const useDatabase = (database) =>{
 
     const [mins,setMins] = useState([]);
@@ -26,12 +24,7 @@ const useDatabase = (database) =>{
     return {mins};
 
 
-
-
 }
-
-
-
 
 
 export default useDatabase

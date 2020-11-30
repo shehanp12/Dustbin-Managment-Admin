@@ -22,9 +22,6 @@ import "@reach/combobox/styles.css";
 import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import useFirestore from "../../Hooks/useFirestore";
 import useDatabase from  "../../Hooks/useDatabase";
-import  projectAuth from "../../firebaseConfig";
-import FooterPage from "../../Components/Footer/footerPage";
-import useFire from "../../Hooks/usefire";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -42,16 +39,8 @@ const center = {
 
 export default function GoogleMaps() {
 
-
-
     const {docs} = useFirestore('Bins');
     const {mins} = useDatabase('DriverLocation');
-    const {eagle} = useFire('Drivers');
-
-
-
-
-
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey:'AIzaSyBjxXtPc46-r1RsHkkbVQcx2uegFaRKIAc',
@@ -97,8 +86,7 @@ export default function GoogleMaps() {
                 onClick={onMapClick}
                 onLoad={onMapLoad}
             >
-                {
-                    docs.map((doc) => (
+                {docs.map((doc) => (
                     <Marker
                         key={`${doc.BinLocation.latitude}-${doc.BinLocation.longitude}`}
                         position={{ lat:doc.BinLocation.latitude, lng:doc.BinLocation.longitude}}
@@ -114,59 +102,40 @@ export default function GoogleMaps() {
                     />
                 ))}
 
+                {mins.map((min) => (
+                    <Marker
+                        key={`${min.latitude}-${min.longitude}`}
+                        position={{ lat:min.latitude, lng:min.longitude}}
+                        onClick={() => {
+                            setSelected(min);
+                        }}
+                        icon={{
+                            url: `/vehicle.png`,
+                            origin: new window.google.maps.Point(0, 0),
+                            anchor: new window.google.maps.Point(15, 15),
+                            scaledSize: new window.google.maps.Size(45, 45),
+                        }}
+                    />
+                ))}
 
-
-                {
-
-                    eagle.map((doc) =>(
-
-                        doc.login == true ?
-
-                            mins.map((min) => (
-                                <Marker
-                                    key={`${min.latitude}-${min.longitude}`}
-                                    position={{ lat:min.latitude, lng:min.longitude}}
-                                    onClick={() => {
-                                        setSelected(min);
-                                    }}
-                                    icon={{
-                                        url: `/vehicle.png`,
-                                        origin: new window.google.maps.Point(0, 0),
-                                        anchor: new window.google.maps.Point(15, 15),
-                                        scaledSize: new window.google.maps.Size(45, 45),
-                                    }}
-                                />
-                            ))
-                            :null))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        }
-
-
-
-
-
-
-
-
-
-
-                }
-
-
+                {selected ? (
+                    <InfoWindow
+                        position={{ lat: selected.lat, lng: selected.lng }}
+                        onCloseClick={() => {
+                            setSelected(null);
+                        }}
+                    >
+                        <div>
+                            <h2>
+                <span role="img" aria-label="bear">
+                  🐻
+                </span>{" "}
+                                Alert
+                            </h2>
+                            <p>Spotted {formatRelative(selected.time, new Date())}</p>
+                        </div>
+                    </InfoWindow>
+                ) : null}
             </GoogleMap>
         </div>
     );
@@ -244,7 +213,5 @@ function Search({ panTo }) {
                 </ComboboxPopover>
             </Combobox>
         </div>
-
     );
-    <FooterPage/>
 }
