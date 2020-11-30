@@ -6,54 +6,37 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import useFirestore from "../../Hooks/useFirestore";
-
 const columns = [
-    { id: 'id', label: 'Driver Id ', minWidth: 100 },
-    { id: 'email', label: 'Email', minWidth: 100 },
+    { id: 'id', label: 'DriverId ', minWidth: 100 },
+    { id: 'FullName', label: 'Email', minWidth: 100 },
     {
-        id: 'address',
-        label: 'Address',
+        id: 'Notification',
+        label: 'Notification',
         minWidth: 100,
 
 
     },
-    {
-        id: 'fullName',
-        label: 'Full Name',
-        minWidth: 100,
 
-
-    },
-    {
-        id: 'nicNumber',
-        label: 'Nic Number',
-        minWidth: 100,
-
-    },
-    {
-        id: 'phoneNumber',
-        label: 'Phone Number',
-        minWidth: 100,
-
-    },
 ];
 
-function createData(Driverid, Email, Address, FullName,NicNumber,PhoneNumber) {
 
-    return { name: Driverid, code: Email, population: Address, size: FullName,NicNumber,PhoneNumber };
+
+function createData(Driverid, FullName,notification) {
+
+    return { Driverid,FullName,notification };
 }
 
 
 
 const useStyles = makeStyles({
     root: {
-        width: '100%',
+        width: '50%',
     },
     container: {
         maxHeight: 440,
+
     },
 });
 
@@ -63,14 +46,7 @@ export default function NotificationDetails() {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
 
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
-    };
     const {docs} = useFirestore('notification');
 
     return (
