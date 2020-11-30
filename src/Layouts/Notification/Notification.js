@@ -32,7 +32,16 @@ const Notification = () =>{
 
                 </div>
 
+                <Grid>
+                    <Grid item xs={3}>
+                        <Paper className={classes.paper} style={{fontWeight:'bold'}}>Driver Details</Paper>
 
+                    </Grid>
+                    <div style={{padding:'15px'}}>
+
+                    </div>
+
+                </Grid>
 
                             <NotificationDetails />
 
