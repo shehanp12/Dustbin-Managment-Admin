@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import StickyHeadTable from "./Components/Grid/DriverDetails";
 import Navbar from "./Components/NavBars/NavBar";
 
 function App() {
