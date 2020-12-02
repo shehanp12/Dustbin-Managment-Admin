@@ -13,18 +13,31 @@ import {
 
 import HomeIcon from "@material-ui/icons/Home";
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import Home from "../../Layouts/Home/Home";
 import GoogleMaps from "../../Layouts/Map/GoogleMaps";
 import Notification from "../../Layouts/Notification/Notification";
-import Trucks from "../../Layouts/Trucks/Trucks";
+
+
+
+const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
   link: {
     textDecoration: 'none',
-    color: theme.palette.text.primary
-  }
+    color: 'blue',
+    fontWeight:'bolder',
+
+
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+
 }))
 
 function Navbar() {

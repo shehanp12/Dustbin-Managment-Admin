@@ -6,8 +6,7 @@ import ButtonAppBar from "../../Components/AppBar/ButtonAppBar";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import FooterPage from "../../Components/Footer/footerPage";
-import StickyHeadTable from "../../Components/Grid/DriverDetails";
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
